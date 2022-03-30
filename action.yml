@@ -4,12 +4,6 @@ runs:
   using: docker
   image: docker://ghcr.io/medlypharmacy/s3-artifacts-action/runner:master
 inputs:
-  aws_access_key_id:  
-    description: 'AWS Access Key Id'
-    required: true
-  aws_secret_access_key:  
-    description: 'AWS Access Key Secret'
-    required: true
   aws_region:  
     description: 'AWS Region'
     required: true
