@@ -1,0 +1,31 @@
+name: "Artifacts"
+description: "Uploads artifacts segregated by app and branch"
+runs:
+  using: docker
+  image: docker://ghcr.io/medlypharmacy/s3-artifacts-action/runner:master
+inputs:
+  aws_access_key_id:  
+    description: 'AWS Access Key Id'
+    required: true
+  aws_secret_access_key:  
+    description: 'AWS Access Key Secret'
+    required: true
+  aws_region:  
+    description: 'AWS Region'
+    required: true
+  aws_s3_bucket_name:  
+    description: 'AWS S3 Bucket Name where the dist file is uploaded'
+    required: false
+  source_path:  
+    description: 'Path of the zipped distribution file'
+    required: true
+  destination_path:
+    description: 'Relative path where the file needs to be updated on S3'
+    required: false
+  exclude_repo_from_destination_path:
+    description: 'By default, the repo name is included in the destination path. Set to true to remove the repo name from the destination path.'
+    required: false
+    default: false
+  resource_type:  
+    description: 'FILE | DIRECTORY | SWAGGER_TO_HTML | TEST_COVERAGE. Default is FILE'
+    required: false
