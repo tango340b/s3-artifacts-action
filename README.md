@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Upload to S3 as artifact
-        uses: medlypharmacy/s3-artifacts-action@master
+        uses: tango340b/s3-artifacts-action@master
         with:
           aws_access_key_id: ${{ secrets.S3_BUILD_ARTIFACTS_ACCESS_KEY_ID}}
           aws_secret_access_key: ${{ secrets.S3_BUILD_ARTIFACTS_SECRET_ACCESS_KEY}}
@@ -42,7 +42,7 @@ publish-s3-artifact-folder:
     steps:
       - uses: actions/checkout@v2
       - name: Upload to S3 artifact folder
-        uses: medlypharmacy/s3-artifacts-action@master
+        uses: tango340b/s3-artifacts-action@master
         with:
           aws_access_key_id: ${{ secrets.S3_BUILD_ARTIFACTS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.S3_BUILD_ARTIFACTS_SECRET_ACCESS_KEY }}
@@ -70,7 +70,7 @@ publish-s3-artifact-folder:
     steps:
       - uses: actions/checkout@v2
       - name: Upload to S3 artifact folder
-        uses: medlypharmacy/s3-artifacts-action@master
+        uses: tango340b/s3-artifacts-action@master
         with:
           aws_access_key_id: ${{ secrets.S3_BUILD_ARTIFACTS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.S3_BUILD_ARTIFACTS_SECRET_ACCESS_KEY }}
@@ -91,7 +91,7 @@ publish-s3-artifact-folder:
     steps:
       - uses: actions/checkout@v2
       - name: Upload to S3 artifact folder
-        uses: medlypharmacy/s3-artifacts-action@master
+        uses: tango340b/s3-artifacts-action@master
         with:
           aws_access_key_id: ${{ secrets.S3_BUILD_ARTIFACTS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.S3_BUILD_ARTIFACTS_SECRET_ACCESS_KEY }}
@@ -107,11 +107,11 @@ publish-s3-artifact-folder:
 - Test the changes by following the below steps
   - Add test for any new feature added in the [workflow](.github/workflows/build.yml)
   - [action.yml](action.yml): Change the version of image used to point to your branch
-    > `image: docker://ghcr.io/medlypharmacy/s3-artifacts-action/runner:<your-branch>`
+    > `image: docker://ghcr.io/tango340b/s3-artifacts-action/runner:<your-branch>`
   - [.github/workflows/build.yml](.github/workflows/build.yml)
     > Use this branch in workflow job 'test'
       ```
       name: Upload to S3 as artifact
-      uses: medlypharmacy/s3-artifacts-action@<your-branch>
+      uses: tango340b/s3-artifacts-action@<your-branch>
       ```
   - Revert these changes, and point to `master` again once the build passes
